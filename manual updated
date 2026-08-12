@@ -1,0 +1,861 @@
+Aama da 🔥 **intha Korai Mat industry-ku full automation system build panna mudiyum.** Nee sonna 9 steps actually oru proper **raw-material → production → employee-work → finished-goods → sales → salary/bonus → profit/loss** workflow ah convert panna mudiyum.
+
+Main idea: **oru Korai material warehouse-ku enter aagurathula irundhu, final mat sale aagura varaikkum every movement system-la record aaganum.** Appo manual calculation romba reduce aagum.
+
+KORAI PURCHASE
+      ↓
+RAW MATERIAL STORE
+      ↓
+CLEANING
+      ↓
+DYING
+      ↓
+DRYING
+      ↓
+MAT MANUFACTURING
+      ↓
+THREAD CUTTING
+      ↓
+WORK-FROM-HOME FINISHING
+      ↓
+FINAL DRYING
+      ↓
+FINISHED GOODS WAREHOUSE
+      ↓
+CUSTOMER ORDER
+      ↓
+DISPATCH / SALE
+      ↓
+PROFIT & LOSS
+      ↓
+EMPLOYEE SALARY + BONUS
+```
+
+---
+
+# STEP 1 — RAW MATERIAL PURCHASE
+
+### 1. Korai purchase
+
+Karur-la irundhu Korai வாங்குறீங்க.
+
+System-la:
+
+```text
+Purchase ID (auto generate)
+Date
+Supplier Name
+Korai Quantity
+Rate (Korai Quantity 1)
+Total Cost (auto calculate )
+Transport & labour cost
+final total cost (Total Cost + Transport & labour )
+
+```
+
+### Example
+
+```text
+Purchase ID : KP-2026-001 (auto generate)
+
+Supplier     : ABC Korai Supplier
+Date         : 12-08-2026
+
+Quantity     : 100 Mukal
+Conversion   : 1 Mukal = 4 Mudi
+
+Total Mudi   : 400 Mudi
+
+Rate         : 1500
+
+Total Cost   : Quantity * Rate
+
+Transport & labour   : ₹5,000
+
+final total cost : Total Cost + Transport & labour
+```
+
+System automatically:
+
+```text
+100 Mukal × 4
+       ↓
+400 Mudi
+       ↓
+Raw Material Stock +400 Mudi
+```
+
+**Important:** Intha conversion system itself handle pannum. Manual calculation thevai illa.
+
+---
+
+# STEP 2 — KORAI CLEANING
+
+Nee sonna:
+
+> 1 Mukal = 4 Mudi
+
+Cleaning employees work pannuvanga.
+
+Employee role:
+
+**Korai Cleaner**
+
+Suppose:
+
+```text
+
+Date: 12-08-2026
+Employee: Ravi
+
+Cleaned:
+20 Mudi
+
+Rate:
+₹30 / Mudi
+```
+
+System:
+
+```text
+20 × ₹30
+= ₹600
+```
+
+Ravi-ku அந்த day's cleaning wage automatically calculate aagum.
+
+### Stock movement
+
+```text
+RAW KORAI
+400 Mudi
+   ↓
+Cleaning
+   ↓
+Cleaned Korai
+400 Mudi
+```
+இதையும் record panna mudiyum.
+
+---
+
+# STEP 3 — DYEING
+
+Ithu important module da.
+
+Nee sonna madhiri:
+
+For example:
+
+
+Employee:
+
+```text
+Employee : Kumar
+Role     : Dye Worker
+
+
+Input:
+10 Mudi
+
+Rate:
+₹XX / Mudi
+```
+
+System automatically:
+
+```text
+10 Mudi × Dye Rate
+       ↓
+Employee Dye Wage
+```
+
+And inventory:
+
+```text
+Clean Korai
+    ↓
+Dyed Korai
+```
+
+---
+
+# STEP 4 — DRYING
+
+Dye panna Korai sunlight-la dry pannuvanga.
+
+Ithu **production process**, but employee payment irundha athayum track panna mudiyum.
+
+Example:
+
+```text
+Batch ID : DY-001
+
+
+Input        : 50 Mudi
+Drying date : 12-08-2026
+
+
+Status:
+☑ Dried
+```
+
+Then:
+
+```text
+Dyed Korai Store
+      ↓
+Drying
+      ↓
+Dry Korai Store
+```
+
+---
+
+# STEP 5 — MACHINE MAT MANUFACTURING
+
+This is probably one of the most important modules.
+
+Machine worker:
+
+```text
+Date
+Employee
+Machine no
+Output Mat
+Production Rate
+```
+
+Example:
+
+```text
+Employee : Mani
+Machine  : Machine-01
+
+Produced:
+100 Mats
+```
+
+System stores:
+
+Machine-01
+   ↓
+100 Mats
+```
+
+Employee production salary:
+
+```text
+100 Mats × ₹X
+```
+Business rate eppadi calculate pannreenga-nu decide pannalaam.
+
+---
+
+# STEP 6 — THREAD CUTTING
+
+Machine-la manufacture panna mat-la extra thread irukkum.
+
+Employee:
+
+**Thread Cutter**
+
+Example:
+
+```text
+Employee : Suresh
+
+Completed:
+95 Mats
+
+
+```
+
+Payment:
+
+```text
+95 × Cutting Rate
+```
+
+System automatically calculate pannum.
+
+---
+
+# STEP 7 — WORK FROM HOME EMPLOYEES
+
+🔥 **Ithu automation-la romba useful module.**
+
+Nee sonna process:
+
+```text
+Warehouse
+    ↓
+Finished/unfinished mats
+    ↓
+Vehicle
+    ↓
+Employee house
+    ↓
+Left side + Right side thread tying
+    ↓
+Next day return
+```
+
+Itha **Work Allocation Module** ah create pannalaam.
+
+### Warehouse Issue
+
+```text
+Work Allocation ID : WF-001
+
+Employee : Lakshmi
+Date     : 12-08-2026
+
+Issued Mats : 100
+
+
+Issued By:
+Warehouse Staff
+```
+
+Employee-kitta 100 mats pochu.
+
+Next day:
+
+```text
+Returned : 96
+Pending  : 2
+```
+
+System automatically calculate pannum.
+
+---
+
+# STEP 8 — FINAL DRYING + WAREHOUSE
+
+WFH employee return pannina mats:
+
+```text
+Returned Mats
+      ↓
+Quality Check
+      ↓
+Sunlight Drying
+      ↓
+Finished Goods Warehouse
+```
+
+Final stock:
+
+```text
+Finished Goods
+
+Mat Type A : 500
+Mat Type B : 250
+Mat Type C : 100
+```
+
+Now these are **SALEABLE STOCK**.
+
+---
+
+# STEP 9 — SALES / DISPATCH
+
+Customer order varum.
+
+System-la:
+
+```text
+Order ID
+Customer
+Date
+Mat Type
+Quantity
+Rate
+Total
+Vehicle
+Driver
+Dispatch Date
+```
+
+Example:
+
+```text
+Order ID : ORD-001
+
+Customer : XYZ Traders
+
+Mat Type : 6×4
+Quantity : 100
+
+Rate     : ₹250
+
+Total:
+100 × 250
+= ₹25,000
+```
+
+Warehouse stock:
+
+```text
+Before:
+500 Mats
+
+Sale:
+100 Mats
+
+After:
+400 Mats
+```
+
+Vehicle loading:
+
+```text
+Warehouse
+    ↓
+Loading
+    ↓
+Vehicle
+    ↓
+Customer
+```
+
+---
+
+# 💰 NOW COMES THE IMPORTANT PART — SALARY
+
+Currently manual calculation pannreenga.
+
+Namma system-la **Employee Work Ledger** maintain pannalaam.
+
+Every employee-ku:
+
+```text
+Employee ID
+Name
+Role
+Date
+Work Type
+Quantity
+Rate
+Amount
+```
+
+Example:
+
+| Employee | Work           |      Qty | Rate | Amount |
+| -------- | -------------- | -------: | ---: | -----: |
+| Ravi     | Cleaning       |  20 Mudi |  ₹30 |   ₹600 |
+| Kumar    | Dyeing         |  10 Mudi |  ₹40 |   ₹400 |
+| Mani     | Machine        | 100 Mats |   ₹5 |   ₹500 |
+| Suresh   | Thread Cutting |  95 Mats |   ₹3 |   ₹285 |
+| Lakshmi  | WFH Finishing  | 100 Mats |   ₹8 |   ₹800 |
+
+System automatically:
+
+```text
+₹600
++ ₹400
++ ₹500
++ ₹285
++ ₹800
+----------------
+₹2,585
+```
+
+### Employee Salary Dashboard
+
+```text
+Employee       : Lakshmi
+
+This Month Work       : 2,450 Mats
+Production Amount     : ₹19,600
+Bonus                 : ₹2,000
+Other Allowance       : ₹1,000
+--------------------------------
+Gross Salary          : ₹22,600
+```
+
+---
+
+# 🎁 BONUS AUTOMATION
+
+Bonus manually decide panna vendam.
+
+**Bonus Rules** create pannalaam.
+
+For example:
+
+```text
+If production > 2,000
+→ ₹1,000 bonus
+
+If production > 2,500
+→ ₹2,000 bonus
+
+If production > 3,000
+→ ₹3,000 bonus
+```
+
+Or quality based:
+
+```text
+Target     : 2,000 Mats
+Actual     : 2,500 Mats
+Rejection  : < 2%
+
+Bonus eligible
+```
+
+Then system:
+
+```text
+Target achieved
+       ↓
+Quality checked
+       ↓
+Bonus calculated
+       ↓
+Payroll
+```
+
+---
+
+# 📊 PROFIT & LOSS — THIS IS THE BIGGEST BENEFIT
+
+Every finished mat-ku actual production cost calculate panna mudiyum.
+
+Suppose one mat:
+
+```text
+Raw Korai Cost       ₹80
+Dye Cost             ₹10
+Cleaning Labour       ₹8
+Dye Labour            ₹7
+Machine Labour       ₹15
+Thread Cutting        ₹5
+WFH Labour           ₹10
+Transport             ₹5
+Electricity           ₹5
+--------------------------------
+Total Cost          ₹145
+```
+
+Selling price:
+
+```text
+₹200
+```
+
+Profit:
+
+```text
+₹200 - ₹145
+= ₹55 profit / mat
+```
+
+If 1,000 mats sold:
+
+```text
+₹55 × 1,000
+= ₹55,000 profit
+```
+
+🔥 **Ithu automatic-a generate panna mudiyum.**
+
+---
+
+# 🧠 SYSTEM SHOULD HAVE THESE MODULES
+
+Naan recommend panra architecture:
+
+### 1. Dashboard
+
+```text
+Today's Production
+Today's Sales
+Raw Material Stock
+Finished Stock
+Today's Labour Cost
+Today's Profit
+Pending Work
+```
+
+### 2. Purchase
+
+```text
+Korai Purchase
+Dye Purchase
+Thread Purchase
+Other Materials
+Supplier Management
+```
+
+### 3. Raw Material Inventory
+
+```text
+Raw Korai
+Cleaned Korai
+Dyed Korai
+Dry Korai
+```
+
+### 4. Production
+
+```text
+Cleaning
+Dyeing
+Drying
+Machine Production
+Thread Cutting
+WFH Finishing
+Final Drying
+```
+
+### 5. Employee Management
+
+```text
+Employee
+Role
+Work Type
+Rate
+Target
+Attendance
+Work Quantity
+Salary
+Bonus
+```
+
+### 6. Warehouse
+
+```text
+Raw Material
+Work-in-Progress
+Finished Goods
+Stock Transfer
+Stock Adjustment
+```
+
+### 7. Sales
+
+```text
+Customer
+Order
+Invoice
+Dispatch
+Vehicle
+Payment
+```
+
+### 8. Salary & Bonus
+
+```text
+Daily Wage
+Piece Rate
+Monthly Salary
+Bonus
+Advance
+Deduction
+Final Salary
+```
+
+### 9. Profit & Loss
+
+```text
+Raw Material Cost
+Labour Cost
+Dye Cost
+Thread Cost
+Transport
+Electricity
+Other Expenses
+Sales Revenue
+Gross Profit
+Net Profit
+```
+
+### 10. Reports
+
+```text
+Daily Report
+Weekly Report
+Monthly Report
+Employee Report
+Production Report
+Stock Report
+Sales Report
+Profit/Loss Report
+Bonus Report
+```
+
+---
+
+# 🔥 MOST IMPORTANT: BATCH SYSTEM
+
+Namma system-la **Batch ID** use panna romba useful.
+
+Example:
+
+```text
+BATCH-2026-001
+```
+
+This one batch:
+
+```text
+Korai Purchase
+      ↓
+Cleaning
+      ↓
+Dyeing
+      ↓
+Drying
+      ↓
+Machine
+      ↓
+Thread Cutting
+      ↓
+WFH
+      ↓
+Final Warehouse
+      ↓
+Sale
+```
+
+Every stage-la:
+
+```text
+Input
+Output
+Employee
+Quantity
+Date
+Cost
+```
+
+store pannuvom.
+
+So later owner asks:
+
+> "இந்த 100 mats-ku actual-a evlo cost aachu?"
+
+System immediately answer pannum.
+
+```text
+Batch BATCH-2026-001
+
+Raw Material       ₹8,000
+Cleaning Labour    ₹1,000
+Dye                 ₹800
+Dye Labour          ₹700
+Machine Labour     ₹1,500
+Thread Cutting      ₹500
+WFH Labour         ₹1,000
+Transport            ₹500
+--------------------------------
+Total Cost         ₹14,000
+
+Sales              ₹20,000
+--------------------------------
+Profit              ₹6,000
+```
+
+---
+
+# 🏗️ Namma Build Panna Vendiya Architecture
+
+Since nee already React JS/PHP side work pannitu irukka, **intha business system-ku React frontend + PHP API/backend + database** use pannalaam.
+
+```text
+                React JS
+                   │
+                   ↓
+            Admin Dashboard
+                   │
+                   ↓
+              PHP REST API
+                   │
+                   ↓
+              Database
+                   │
+       ┌───────────┼───────────┐
+       ↓           ↓           ↓
+   Inventory   Production   Employees
+       │           │           │
+       └───────────┼───────────┘
+                   ↓
+            Salary / Bonus
+                   ↓
+             Profit & Loss
+                   ↓
+                Reports
+```
+
+### Database main tables
+
+```text
+employees
+employee_rates
+suppliers
+customers
+vehicles
+
+raw_materials
+raw_material_purchases
+raw_material_stock
+
+colours
+dye_stock
+thread_stock
+
+batches
+cleaning_records
+dyeing_records
+drying_records
+machine_production
+thread_cutting
+wfh_allocations
+wfh_returns
+
+finished_products
+finished_stock
+
+sales_orders
+sales_order_items
+dispatches
+
+employee_work
+salary
+bonus
+expenses
+
+payments
+```
+
+---
+
+## 🚀 But before coding, one thing is VERY important
+
+**Namma first current manual calculation method-a exact-a capture pannanum.**
+
+Especially these values:
+
+1. **Korai — 1 Mukal = 4 Mudi** confirmed.
+2. 1 Mudi-ku cleaning employee-ku evlo ₹?
+3. 1 Mudi dye panna labour rate evlo?
+4. Different colour-ku different dye cost irukka?
+5. Machine worker salary **per mat-aa / per Mudi-aa / daily wage-aa?**
+6. Thread cutting rate?
+7. WFH employee-ku **per mat / per side / per bundle** payment?
+8. WFH employee-ku left/right tying-ku separate rates irukka?
+9. Rejection/damage/wastage eppadi calculate pannreenga?
+10. Monthly salary employee-ku fixed salary + production bonus-aa?
+11. Bonus formula currently eppadi calculate panreenga?
+12. Electricity, vehicle, rent, other expenses P&L-la include panna venduma?
+13. Final mat types/sizes evlo irukku?
+14. Selling price **per mat-aa / bundle-aa / size based-aa?**
+
+**Itha exact-a define pannita, namma system simply "attendance app" illa da — full Korai Mat ERP / Production Management System ah build pannalaam.** 🔥
+
+Next step-la **un actual business calculation rules-a வைத்து complete database tables + screen/module structure + exact workflow** design pannalaam.
+
