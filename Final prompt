@@ -1,0 +1,1896 @@
+Design and build a premium, modern, production-ready ERP frontend for a traditional Korai Mat Manufacturing Industry.
+
+The ERP should automate the complete business workflow from raw-material purchase to finished Korai Mat sales, including inventory, production, employee work tracking, salary calculation, bonus calculation, expenses, sales, profit/loss, and reports.
+
+The UI must feel like a professional manufacturing ERP used by a real industrial company — NOT like a generic admin dashboard.
+
+TECH STACK:
+- React.js
+- TypeScript
+- Tailwind CSS
+- shadcn/ui or equivalent premium UI components
+- Recharts for charts
+- Framer Motion for subtle animations
+- Responsive design
+- Desktop-first but fully responsive for tablet and mobile
+- Component-based architecture
+- Clean reusable components
+
+VISUAL STYLE:
+- Premium industrial ERP
+- Clean, modern, professional
+- White/light background with deep navy/charcoal accents
+- Korai/natural-material inspired subtle green and earthy accent colors
+- Glassmorphism only where appropriate
+- Rounded cards
+- Soft shadows
+- Clear typography
+- Excellent spacing
+- Professional tables
+- Status badges
+- Smooth hover animations
+- Minimal unnecessary decoration
+- Strong information hierarchy
+- Use icons consistently
+- Avoid excessive gradients
+- Avoid overly colorful dashboard
+- Make it look suitable for a real factory/company environment
+
+MAIN ERP MODULES:
+
+1. DASHBOARD
+2. RAW MATERIAL MANAGEMENT
+3. COLOR / DYE MANAGEMENT
+4. THREAD / BEAM MANAGEMENT
+5. EMPLOYEE MANAGEMENT
+6. WORK ASSIGNMENT
+7. PRODUCTION MANAGEMENT
+8. CLEANING MANAGEMENT
+9. DYEING MANAGEMENT
+10. DRYING MANAGEMENT
+11. MAT MANUFACTURING
+12. THREAD FINISHING
+13. HOME WORK MANAGEMENT
+14. VEHICLE / TRANSPORT MANAGEMENT
+15. WAREHOUSE MANAGEMENT
+16. SALES / ORDERS
+17. EXPENSE MANAGEMENT
+18. SALARY & WAGES
+19. BONUS MANAGEMENT
+20. PROFIT & LOSS
+21. REPORTS
+22. SETTINGS
+23. USER / ROLE MANAGEMENT
+
+
+==================================================
+1. ERP DASHBOARD
+==================================================
+
+Create a premium dashboard showing today's complete business status.
+
+Top KPI cards:
+
+- Total Raw Material Stock
+- Total Korai Purchased
+- Today's Production
+- Finished Mats
+- Pending Work
+- Employees Working Today
+- Today's Labour Cost
+- Today's Sales
+- Monthly Revenue
+- Monthly Expenses
+- Monthly Profit
+- Pending Orders
+
+Use attractive KPI cards with:
+- icon
+- current value
+- unit
+- percentage/change
+- small trend indicator
+
+Example:
+
+RAW MATERIAL
+₹1,42,000
++8.4% this month
+
+PRODUCTION
+1,240 Mats
++12.2%
+
+LABOUR COST
+₹18,450
+Today
+
+SALES
+₹2,84,500
+This Month
+
+PROFIT
+₹76,240
+This Month
+
+Dashboard charts:
+
+A. Production Trend
+Line chart:
+- Date
+- Mats produced
+
+B. Labour Cost
+Bar chart:
+- Cleaning
+- Dyeing
+- Drying
+- Manufacturing
+- Finishing
+- Home Work
+- Transport
+
+C. Raw Material Stock
+Bar chart:
+- Purchased
+- Used
+- Remaining
+
+D. Sales vs Expenses
+Combined chart
+
+E. Profit Trend
+Monthly profit graph
+
+F. Production Pipeline
+Visual workflow:
+
+Purchased
+↓
+Cleaning
+↓
+Dyeing
+↓
+Drying
+↓
+Manufacturing
+↓
+Finishing
+↓
+Home Work
+↓
+Warehouse
+↓
+Sales
+
+
+==================================================
+2. RAW MATERIAL MANAGEMENT
+==================================================
+
+Create complete raw-material inventory management.
+
+Main raw material:
+KORAI
+
+Business measurement:
+
+1 Mukal = 4 Mudi
+
+Example:
+1 Mukal = approximately ₹2,000
+
+Typical purchase:
+60–70 Mukal per purchase.
+
+Raw Material Purchase screen:
+
+Fields:
+
+- Purchase Date
+- Supplier
+- Vehicle Number
+- Purchase Invoice Number
+- Number of Mukal
+- Number of Mudi
+- Rate per Mukal
+- Total Purchase Amount
+- Transport Cost
+- Other Expenses
+- Total Cost
+- Storage Location
+- Remarks
+
+Automatically calculate:
+
+Mukal × 4 = Mudi
+
+Example:
+
+70 Mukal
+= 280 Mudi
+
+If rate = ₹2,000/Mukal
+
+Total = ₹1,40,000
+
+Inventory should automatically increase after purchase.
+
+Raw Material Stock table:
+
+Columns:
+
+- Batch ID
+- Purchase Date
+- Supplier
+- Mukal
+- Mudi
+- Used Mudi
+- Remaining Mudi
+- Purchase Cost
+- Cost per Mudi
+- Status
+- Storage Location
+
+
+==================================================
+3. COLOR / DYE MANAGEMENT
+==================================================
+
+The company normally uses approximately 5–6 different dye/color types.
+
+Create:
+
+Color Master
+
+Fields:
+
+- Color ID
+- Color Name
+- Color Code
+- Packet Size
+- Rate per Packet
+- Current Stock
+- Minimum Stock
+- Supplier
+- Status
+
+Examples:
+
+Red
+Green
+Blue
+Yellow
+Brown
+Black
+
+Dye Purchase:
+
+- Date
+- Color
+- Number of Packets
+- Rate per Packet
+- Total Amount
+- Supplier
+- Batch Number
+
+Automatically update dye inventory.
+
+Dye consumption should be linked to production.
+
+Track:
+
+Dye purchased
+Dye consumed
+Dye remaining
+Dye cost per mat
+
+
+==================================================
+4. THREAD / BEAM MANAGEMENT
+==================================================
+
+Thread is purchased in bundles.
+
+Example:
+
+1 Bundle ≈ ₹10,000
+
+Create Thread Purchase module.
+
+Fields:
+
+- Purchase Date
+- Supplier
+- Bundle Count
+- Rate per Bundle
+- Total Cost
+- Thread Weight / Quantity
+- Beam Number
+- Remaining Thread
+- Returned Beam
+- Return Date
+
+Important workflow:
+
+THREAD BUNDLE PURCHASE
+↓
+THREAD USED FOR MAT MANUFACTURING
+↓
+REMAINING THREAD
+↓
+BEAM RETURNED
+
+The system must track thread consumption and returned beam automatically.
+
+Dashboard:
+
+- Total Thread Purchased
+- Thread Used
+- Thread Remaining
+- Beams Pending Return
+- Beams Returned
+
+
+==================================================
+5. EMPLOYEE MANAGEMENT
+==================================================
+
+Create employee master.
+
+Employee fields:
+
+- Employee ID
+- Employee Name
+- Photo
+- Mobile Number
+- Department
+- Work Type
+- Wage Type
+- Joining Date
+- Status
+- Bank Details
+- Emergency Contact
+- Address
+
+Work types:
+
+- Korai Cleaner
+- Dye Worker
+- Drying Worker
+- Machine Operator
+- Mat Finisher
+- Home Worker
+- Vehicle Worker
+- General Worker
+- Supervisor
+
+Wage types:
+
+- Per Mudi
+- Per Mat
+- Per Trip
+- Daily Wage
+- Monthly Salary
+- Custom Rate
+
+Important:
+
+One employee can perform MULTIPLE types of work.
+
+For example:
+
+Employee A
+- Machine Operator
+- Dye Worker
+- Drying Worker
+
+Therefore the system should NOT permanently assign only one job to an employee.
+
+Employee Work Rate Master:
+
+Employee
+↓
+Work Type
+↓
+Unit
+↓
+Rate
+
+Example:
+
+Employee: Kumar
+
+Dyeing
+Rate: ₹5 / Mudi
+
+Drying
+Rate: ₹5 / Mudi
+
+Machine Production
+Rate: Custom
+
+The ERP should calculate earnings separately for every activity.
+
+
+==================================================
+6. WORK ASSIGNMENT
+==================================================
+
+Create a work assignment module.
+
+Supervisor can assign work to employees.
+
+Fields:
+
+- Work ID
+- Date
+- Employee
+- Work Type
+- Batch
+- Quantity
+- Unit
+- Rate
+- Calculated Wage
+- Status
+
+Example:
+
+Employee:
+Kumar
+
+Work:
+Dyeing
+
+Quantity:
+120 Mudi
+
+Rate:
+₹5/Mudi
+
+Automatically calculate:
+
+120 × ₹5 = ₹600
+
+Status:
+
+Assigned
+In Progress
+Completed
+Verified
+Paid
+
+
+==================================================
+7. STEP 2 — KORAI CLEANING
+==================================================
+
+Cleaning workflow:
+
+1 Mukal = 4 Mudi
+
+Cleaning employee:
+
+KORAI CLEANER
+
+Rate:
+
+₹10 per Mudi
+
+Example:
+
+100 Mudi cleaned
+
+100 × ₹10
+
+Employee Wage = ₹1,000
+
+Create cleaning production entry:
+
+- Batch ID
+- Employee
+- Date
+- Input Mudi
+- Cleaned Mudi
+- Wastage
+- Rate per Mudi
+- Labour Cost
+- Status
+
+Automatically move cleaned material into:
+
+CLEANED KORAI STOCK
+
+
+==================================================
+8. STEP 3 — DYEING
+==================================================
+
+Employees take individual Mudi and apply dye.
+
+Typical wage:
+
+₹5–₹6 per Mudi
+
+Do NOT hardcode this rate.
+
+Allow admin to configure employee-specific rates.
+
+Dyeing entry:
+
+- Batch ID
+- Employee
+- Color
+- Input Mudi
+- Dye Used
+- Rate per Mudi
+- Labour Cost
+- Start Time
+- End Time
+- Status
+
+Example:
+
+Employee:
+Ravi
+
+Color:
+Green
+
+Quantity:
+100 Mudi
+
+Rate:
+₹6/Mudi
+
+Labour Cost:
+₹600
+
+Automatically deduct dye quantity from dye inventory.
+
+Move material:
+
+CLEANED KORAI
+↓
+DYED KORAI
+
+
+==================================================
+9. STEP 4 — DRYING
+==================================================
+
+Dyed Korai is placed in sunlight for drying.
+
+After drying:
+
+DYED KORAI
+↓
+SUN DRYING
+↓
+DRIED KORAI STOCK
+
+Drying employee can be the same employee who performs dyeing.
+
+Typical wage:
+
+₹5–₹6 per Mudi
+
+Create:
+
+- Batch ID
+- Employee
+- Quantity
+- Rate
+- Labour Cost
+- Drying Start
+- Drying End
+- Quality Status
+
+Allow:
+
+Good
+Partially Dry
+Rejected
+Re-drying Required
+
+Automatically calculate labour cost.
+
+
+==================================================
+10. STEP 5 — KORAI MAT MANUFACTURING
+==================================================
+
+Create production module.
+
+Machine operators take dried Korai and manufacture mats.
+
+Track:
+
+- Production ID
+- Machine
+- Operator
+- Batch
+- Input Korai
+- Mats Produced
+- Rejected Mats
+- Production Date
+- Shift
+- Machine Hours
+- Labour Cost
+
+Support multiple employees on the same machine.
+
+Example:
+
+Machine:
+Machine 01
+
+Operator:
+Kumar
+
+Assistant:
+Ravi
+
+Production:
+250 Mats
+
+Calculate production cost.
+
+Production status:
+
+Scheduled
+Running
+Paused
+Completed
+Quality Check
+Approved
+
+
+==================================================
+11. STEP 6 — THREAD FINISHING
+==================================================
+
+After mat manufacturing, thread ends on the mat need to be finished/cut/tied.
+
+Typical wage:
+
+₹1 per Mat
+
+Example:
+
+500 Mats
+
+500 × ₹1
+
+Labour Cost = ₹500
+
+Fields:
+
+- Employee
+- Mats Received
+- Mats Completed
+- Rejected
+- Rate per Mat
+- Total Wage
+- Date
+- Status
+
+Automatically calculate wages.
+
+
+==================================================
+12. STEP 7 — VEHICLE TRANSPORT TO HOME WORKERS
+==================================================
+
+Finished semi-processed Korai Mats are transported to home workers.
+
+Workflow:
+
+WAREHOUSE
+↓
+VEHICLE
+↓
+HOME WORKER
+↓
+WORK COMPLETION
+↓
+RETURN TO WAREHOUSE
+
+Transport workers receive approximately:
+
+₹25–₹30 per round trip.
+
+DO NOT hardcode this.
+
+Admin can configure rate.
+
+Transport entry:
+
+- Trip ID
+- Date
+- Vehicle
+- Driver / Employee
+- Home Worker
+- Quantity
+- Pickup Location
+- Delivery Location
+- Departure Time
+- Return Time
+- Rate per Trip
+- Total Transport Wage
+- Status
+
+Example:
+
+1 Round Trip
+Rate = ₹30
+
+Employee Wage = ₹30
+
+Allow:
+
+One Way
+Round Trip
+
+
+==================================================
+13. STEP 8 — HOME WORK MANAGEMENT
+==================================================
+
+Home workers receive Korai Mats.
+
+They perform finishing/other work at home.
+
+After completion they return the mats to warehouse.
+
+Support TWO wage systems:
+
+A. Daily Wage
+B. Per Mat
+
+Example:
+
+Daily Wage:
+
+₹500/day
+
+OR
+
+Per Mat:
+
+₹1/mat
+
+Home Worker Entry:
+
+- Worker ID
+- Worker Name
+- Date
+- Mats Received
+- Mats Completed
+- Mats Rejected
+- Wage Type
+- Rate
+- Total Wage
+- Given Date
+- Return Date
+- Quality Status
+- Payment Status
+
+Workflow:
+
+Issued
+↓
+In Progress
+↓
+Returned
+↓
+Quality Check
+↓
+Accepted
+↓
+Warehouse Stock
+
+
+==================================================
+14. WAREHOUSE MANAGEMENT
+==================================================
+
+Create centralized warehouse inventory.
+
+Inventory categories:
+
+- Raw Korai
+- Cleaned Korai
+- Dyed Korai
+- Dried Korai
+- Semi-Finished Mats
+- Finished Mats
+- Thread
+- Dye
+- Packing Materials
+
+Inventory movement should be automatically recorded.
+
+Create stock ledger:
+
+Date
+Batch
+Item
+Opening Stock
+Received
+Issued
+Produced
+Rejected
+Closing Stock
+Location
+
+Add:
+
+Low Stock Alert
+Stock Adjustment
+Stock Transfer
+Batch Tracking
+
+
+==================================================
+15. SALES / ORDER MANAGEMENT
+==================================================
+
+Create sales order module.
+
+Order fields:
+
+- Order ID
+- Customer
+- Customer Type
+- Order Date
+- Delivery Date
+- Product
+- Quantity
+- Rate
+- Discount
+- Tax
+- Transport
+- Total Amount
+- Payment Status
+- Order Status
+
+Order workflow:
+
+New Order
+↓
+Confirmed
+↓
+Production / Stock Allocation
+↓
+Ready
+↓
+Loading
+↓
+Dispatched
+↓
+Delivered
+↓
+Payment Completed
+
+Support vehicle loading.
+
+Loading screen:
+
+- Order
+- Vehicle
+- Driver
+- Product
+- Quantity
+- Weight
+- Loading Status
+
+
+==================================================
+16. EXPENSE MANAGEMENT
+==================================================
+
+Track all business expenses.
+
+Categories:
+
+- Raw Material
+- Dye
+- Thread
+- Labour
+- Transport
+- Electricity
+- Machine Maintenance
+- Vehicle
+- Warehouse
+- Packing
+- Salary
+- Bonus
+- Other
+
+Every expense should have:
+
+- Date
+- Category
+- Description
+- Amount
+- Payment Method
+- Reference
+- Attachment
+- Created By
+
+
+==================================================
+17. SALARY & WAGES AUTOMATION
+==================================================
+
+This is one of the most important modules.
+
+The system should automatically calculate employee earnings from work records.
+
+Do NOT manually enter salary every month.
+
+Calculation examples:
+
+Cleaning:
+
+Mudi × Rate
+
+Dyeing:
+
+Mudi × Rate
+
+Drying:
+
+Mudi × Rate
+
+Finishing:
+
+Mat × Rate
+
+Home Work:
+
+Mat × Rate
+
+Transport:
+
+Trips × Trip Rate
+
+Daily Wage:
+
+Working Days × Daily Rate
+
+Monthly Salary:
+
+Basic Salary + Allowances - Deductions
+
+
+Employee Salary Dashboard:
+
+Employee Name
+Total Work
+Units Completed
+Gross Wage
+Bonus
+Advance
+Deduction
+Net Pay
+Payment Status
+
+Example:
+
+Employee:
+Kumar
+
+Cleaning:
+120 Mudi × ₹10 = ₹1,200
+
+Dyeing:
+100 Mudi × ₹6 = ₹600
+
+Drying:
+100 Mudi × ₹5 = ₹500
+
+Finishing:
+300 Mats × ₹1 = ₹300
+
+Transport:
+5 Trips × ₹30 = ₹150
+
+Gross Wage:
+₹2,750
+
+Bonus:
+₹500
+
+Advance:
+₹1,000
+
+Net Pay:
+₹2,250
+
+
+==================================================
+18. BONUS MANAGEMENT
+==================================================
+
+Create configurable bonus system.
+
+Admin should be able to define:
+
+- Production Bonus
+- Attendance Bonus
+- Quality Bonus
+- Target Bonus
+- Monthly Bonus
+- Festival Bonus
+- Performance Bonus
+- Custom Bonus
+
+Example:
+
+If employee produces more than target:
+
+Target:
+1,000 Mats
+
+Actual:
+1,200 Mats
+
+Bonus:
+₹500
+
+The bonus engine should support:
+
+Fixed Amount
+Percentage
+Per Unit
+Target Based
+Custom Rule
+
+Bonus approval:
+
+Calculated
+↓
+Supervisor Review
+↓
+Manager Approval
+↓
+Approved
+↓
+Payroll
+
+
+==================================================
+19. PROFIT & LOSS
+==================================================
+
+Create automated Profit & Loss module.
+
+Revenue:
+
+Sales Revenue
+
+Expenses:
+
+Raw Material
+Dye
+Thread
+Labour
+Transport
+Electricity
+Machine Maintenance
+Warehouse
+Packing
+Salary
+Bonus
+Other Expenses
+
+Formula:
+
+Gross Profit =
+Sales Revenue - Production Cost
+
+Net Profit =
+Sales Revenue - Total Expenses
+
+Show:
+
+Revenue
+Cost of Goods
+Gross Profit
+Operating Expenses
+Net Profit
+Profit Margin
+
+Charts:
+
+Revenue vs Expenses
+Monthly Profit
+Production Cost
+Labour Cost
+Material Cost
+
+
+==================================================
+20. PRODUCT COST CALCULATOR
+==================================================
+
+Create a production cost calculator.
+
+For every finished mat calculate estimated cost.
+
+Cost components:
+
+Raw Korai Cost
+Cleaning Labour
+Dye Cost
+Dyeing Labour
+Drying Labour
+Machine Labour
+Thread Cost
+Finishing Labour
+Home Worker Cost
+Transport Cost
+Electricity
+Overhead
+Packing
+
+Example:
+
+Raw Material = ₹25
+Cleaning = ₹4
+Dye = ₹3
+Dyeing = ₹2
+Drying = ₹2
+Thread = ₹5
+Machine Labour = ₹4
+Finishing = ₹1
+Home Work = ₹1
+Transport = ₹0.50
+Overhead = ₹2
+
+Total Cost = ₹49.50
+
+Selling Price = ₹65
+
+Estimated Profit = ₹15.50
+
+The ERP should calculate this dynamically based on actual production data.
+
+
+==================================================
+21. PRODUCTION BATCH MANAGEMENT
+==================================================
+
+Every raw-material purchase should create a Batch ID.
+
+Example:
+
+KOR-2026-0001
+
+Track the batch throughout the entire workflow.
+
+Example:
+
+KOR-2026-0001
+↓
+280 Mudi Purchased
+↓
+270 Mudi Cleaned
+↓
+265 Mudi Dyed
+↓
+260 Mudi Dried
+↓
+Production
+↓
+Mats Produced
+↓
+Finishing
+↓
+Home Work
+↓
+Finished Warehouse
+↓
+Sales
+
+User should be able to open a batch and see its COMPLETE HISTORY.
+
+Create a visual batch timeline.
+
+
+==================================================
+22. EMPLOYEE WORK TIMELINE
+==================================================
+
+For every employee show:
+
+Employee
+↓
+Date
+↓
+Work Type
+↓
+Quantity
+↓
+Rate
+↓
+Calculated Wage
+
+Example:
+
+18 Sep
+
+09:00–11:00
+Cleaning
+50 Mudi
+₹500
+
+11:30–13:00
+Dyeing
+40 Mudi
+₹240
+
+14:00–16:00
+Drying
+40 Mudi
+₹200
+
+16:30–18:00
+Finishing
+100 Mats
+₹100
+
+Total:
+₹1,040
+
+
+==================================================
+23. REPORTS
+==================================================
+
+Create professional reports module.
+
+Reports:
+
+1. Daily Production Report
+2. Monthly Production Report
+3. Employee Wage Report
+4. Salary Report
+5. Bonus Report
+6. Raw Material Report
+7. Dye Consumption Report
+8. Thread Consumption Report
+9. Warehouse Stock Report
+10. Sales Report
+11. Expense Report
+12. Profit & Loss Report
+13. Production Cost Report
+14. Employee Performance Report
+15. Transport Report
+16. Home Worker Report
+
+Allow:
+
+- Date filter
+- Employee filter
+- Batch filter
+- Department filter
+- Export PDF
+- Export Excel
+- Print
+
+
+==================================================
+24. EMPLOYEE PERFORMANCE
+==================================================
+
+Create employee performance dashboard.
+
+Metrics:
+
+- Total Work
+- Quantity Completed
+- Average Daily Output
+- Quality Rate
+- Rejection Rate
+- Attendance
+- Total Earnings
+- Bonus
+- Pending Work
+
+Do NOT judge employees using only production quantity.
+
+Show objective metrics separately.
+
+
+==================================================
+25. NOTIFICATION SYSTEM
+==================================================
+
+Create notification center.
+
+Examples:
+
+Low Korai Stock
+Low Dye Stock
+Thread Bundle Running Low
+Pending Beam Return
+Pending Home Worker Return
+Pending Quality Check
+Pending Salary Approval
+Pending Bonus Approval
+Pending Sales Payment
+Pending Vehicle Return
+
+
+==================================================
+26. ROLE-BASED ACCESS
+==================================================
+
+Create role-based authentication.
+
+Roles:
+
+SUPER ADMIN
+ADMIN
+MANAGER
+PRODUCTION SUPERVISOR
+WAREHOUSE STAFF
+HR / PAYROLL
+ACCOUNTS
+SALES
+EMPLOYEE
+
+Each role should have different permissions.
+
+Example:
+
+Employee:
+- View own work
+- View own earnings
+- View attendance
+
+Supervisor:
+- Assign work
+- Verify production
+- Approve completed work
+
+Accounts:
+- Salary
+- Expenses
+- Profit & Loss
+- Payments
+
+Warehouse:
+- Stock
+- Batch
+- Material movement
+
+Admin:
+- Everything
+
+
+==================================================
+27. MAIN SIDEBAR
+==================================================
+
+Sidebar navigation:
+
+Dashboard
+
+Operations
+  ├── Raw Material
+  ├── Cleaning
+  ├── Dyeing
+  ├── Drying
+  ├── Production
+  ├── Finishing
+  ├── Home Work
+  └── Transport
+
+Inventory
+  ├── Raw Material Stock
+  ├── Dye Stock
+  ├── Thread Stock
+  └── Warehouse
+
+Employees
+  ├── Employees
+  ├── Work Assignment
+  ├── Attendance
+  ├── Wages
+  ├── Salary
+  └── Bonus
+
+Sales
+  ├── Customers
+  ├── Orders
+  ├── Dispatch
+  └── Payments
+
+Finance
+  ├── Expenses
+  ├── Revenue
+  ├── Production Cost
+  └── Profit & Loss
+
+Reports
+
+Settings
+
+
+==================================================
+28. GLOBAL SEARCH
+==================================================
+
+Add global search.
+
+Search by:
+
+Employee ID
+Employee Name
+Batch ID
+Order ID
+Invoice Number
+Vehicle Number
+Customer
+Product
+
+Search results should appear instantly.
+
+
+==================================================
+29. DATA TABLE DESIGN
+==================================================
+
+All major tables should have:
+
+- Search
+- Filter
+- Sort
+- Pagination
+- Column visibility
+- Date range
+- Export
+- Bulk actions
+
+Use clean enterprise table design.
+
+Status badges:
+
+Pending
+In Progress
+Completed
+Approved
+Rejected
+Paid
+Unpaid
+
+
+==================================================
+30. ADD / EDIT FORMS
+==================================================
+
+Use premium modal or side drawer forms.
+
+Forms should have:
+
+- Clear labels
+- Input validation
+- Required field indicators
+ Helpful placeholders
+- Dropdowns
+- Searchable employee dropdown
+- Searchable batch dropdown
+- Auto calculations
+- Confirmation before submission
+
+Example:
+
+Quantity:
+[ 120 ]
+
+Rate:
+[ ₹5 ]
+
+Total:
+[ ₹600 ]
+
+The Total should automatically update.
+=================================================
+31. IMPORTANT BUSINESS LOGIC
+==================================================
+
+Do NOT hardcode business rates.
+
+All rates should be configurable from:
+
+Settings
+→ Wage Rate Master
+
+Examples:
+
+Cleaning:
+₹10 / Mudi
+
+Dyeing:
+₹5–₹6 / Mudi
+
+Drying:
+₹5–₹6 / Mudi
+
+Finishing:
+₹1 / Mat
+
+Transport:
+₹25–₹30 / Trip
+
+Home Worker:
+Daily Wage OR ₹1 / Mat
+
+These are approximate current business values and must be editable.
+
+The system must support employee-specific rates.
+
+Example:
+
+Employee A:
+Cleaning = ₹10/Mudi
+
+Employee B:
+Cleaning = ₹11/Mudi
+
+Employee C:
+Cleaning = ₹10/Mudi
+
+
+==================================================
+32. MATERIAL CONVERSION
+==================================================
+
+Important conversion:
+
+1 Mukal = 4 Mudi
+
+The UI should allow the user to enter either Mukal or Mudi.
+
+Example:
+
+Mukal:
+70
+
+Automatically display:
+
+Mudi:
+280
+
+Allow conversions everywhere.
+
+Never lose the original purchase unit.
+
+
+==================================================
+33. AUTOMATIC CALCULATIONS
+==================================================
+
+All calculations should happen automatically.
+
+Examples:
+
+Purchase Cost:
+Mukal × Rate
+
+Mudi:
+Mukal × 4
+
+Cleaning Wage:
+Cleaned Mudi × Cleaning Rate
+
+Dyeing Wage:
+Dyed Mudi × Dyeing Rate
+
+Drying Wage:
+Dried Mudi × Drying Rate
+
+Finishing Wage:
+Finished Mats × Finishing Rate
+
+Transport Wage:
+Trips × Trip Rate
+
+Home Work Wage:
+Completed Mats × Mat Rate
+
+Daily Wage:
+Working Days × Daily Rate
+
+Gross Salary:
+All Earnings + Bonus
+
+Net Salary:
+Gross Salary - Advance - Deductions
+
+Profit:
+Sales - Total Cost
+
+
+==================================================
+34. AUDIT LOG
+==================================================
+
+Every important action should be recorded.
+
+Example:
+
+Admin created purchase
+Admin updated wage rate
+Supervisor assigned cleaning
+Supervisor verified production
+Accounts generated salary
+Manager approved bonus
+
+Show:
+
+User
+Action
+Date
+Time
+Module
+Old Value
+New Value
+
+
+==================================================
+35. RESPONSIVE DESIGN
+==================================================
+
+Desktop:
+Full sidebar + detailed tables + charts
+
+Tablet:
+Collapsible sidebar + responsive cards
+
+Mobile:
+Bottom navigation or compact sidebar
+Stacked KPI cards
+Mobile-friendly tables
+Swipeable data tables
+Large touch-friendly buttons
+
+The application must remain usable on:
+
+1920px desktop
+1440px desktop
+1024px tablet
+768px tablet
+390px mobile
+
+
+==================================================
+36. UI PAGES TO GENERATE
+==================================================
+
+Generate complete UI screens for:
+
+1. Login
+2. Dashboard
+3. Raw Material List
+4. Add Raw Material Purchase
+5. Raw Material Batch Details
+6. Dye Inventory
+7. Thread Inventory
+8. Employee List
+9. Employee Profile
+10. Work Assignment
+11. Cleaning Management
+12. Dyeing Management
+13. Drying Management
+14. Production Management
+15. Machine Dashboard
+16. Finishing Management
+17. Transport Management
+18. Home Worker Management
+19. Warehouse Dashboard
+20. Warehouse Stock
+21. Sales Orders
+22. Order Details
+23. Dispatch
+24. Expenses
+25. Salary
+26. Bonus
+27. Profit & Loss
+28. Production Cost
+29. Reports
+30. Settings
+31. Role Management
+32. Audit Logs
+
+
+==================================================
+37. DASHBOARD WORKFLOW VISUALIZATION
+==================================================
+
+Create a beautiful interactive production pipeline on the dashboard:
+
+RAW MATERIAL PURCHASE
+        ↓
+RAW MATERIAL STORE
+        ↓
+CLEANING
+        ↓
+DYEING
+        ↓
+SUN DRYING
+        ↓
+MAT MANUFACTURING
+        ↓
+THREAD FINISHING
+        ↓
+HOME WORK
+        ↓
+QUALITY CHECK
+        ↓
+FINISHED GOODS WAREHOUSE
+        ↓
+CUSTOMER ORDER
+        ↓
+LOADING
+        ↓
+DISPATCH
+        ↓
+SALE
+
+Each stage should show:
+
+- Current quantity
+- Pending quantity
+- Completed quantity
+- Labour cost
+- Status
+
+
+==================================================
+38. DESIGN REQUIREMENT
+==================================================
+
+The most important requirement is that the application should feel like a REAL KORAI MAT FACTORY ERP.
+
+Do not create a generic CRM dashboard.
+
+Use terminology that matches the manufacturing workflow:
+
+Mukal
+Mudi
+Korai
+Dye
+Thread
+Beam
+Mat
+Batch
+Machine
+Home Worker
+Warehouse
+Trip
+Production
+Wage
+Bonus
+Salary
+
+Use realistic sample data.
+
+Create a consistent design system:
+
+Primary:
+Deep Navy / Charcoal
+
+Secondary:
+Natural Green
+
+Accent:
+Warm earthy tone
+
+Background:
+Off-white / very light gray
+
+Typography:
+Modern professional sans-serif
+
+Cards:
+12–16px radius
+
+Buttons:
+Clear primary/secondary hierarchy
+
+Tables:
+Dense but readable
+
+Charts:
+Minimal and professional
+
+Animations:
+Subtle and purposeful.
+
+
+==================================================
+39. FRONTEND ARCHITECTURE
+==================================================
+
+Build reusable components:
+
+Layout
+Sidebar
+Topbar
+Breadcrumb
+KpiCard
+ChartCard
+DataTable
+SearchBar
+FilterPanel
+StatusBadge
+EmployeeSelector
+BatchSelector
+QuantityInput
+RateInput
+CalculationPreview
+DatePicker
+Modal
+Drawer
+ConfirmationDialog
+Toast
+Timeline
+ProductionPipeline
+SalaryBreakdown
+ProfitLossChart
+
+Use reusable data models/types.
+
+Separate:
+
+pages/
+components/
+layouts/
+hooks/
+services/
+types/
+utils/
+data/
+
+Use mock JSON data initially so every page looks functional.
+
+All forms should demonstrate real-time calculations.
+
+The frontend should be designed so that later it can connect easily to a PHP / Laravel / CodeIgniter / REST API backend.
+
+Do not build backend now.
+
+Focus on creating a complete, polished, production-ready FRONTEND ERP interface.
+One important change I strongly recommend daa
+
+Your actual business has a special requirement: one employee can do multiple works on the same day.
+
+For example:
+
+Kumar → Cleaning → Dyeing → Drying → Machine → Finishing
+
+So don't make the employee table like:
+
+Employee → Designation → One Salary
+
+Instead use:
+
+Employee → Work Entries → Rate → Quantity → Earnings
+
+That will make your salary automation much more accurate.
+
+And because your rates are approximate, the ERP should have a Wage Rate Master where you can change ₹5 to ₹6, ₹25 to ₹30, etc., without changing the software code.
+
+The most important database/business relationship will eventually be:
+
+Raw Material Batch → Production Batch → Employee Work → Wage → Finished Mat → Warehouse → Sales → Profit/Loss
+
+That structure will let you calculate the actual cost of producing each mat, rather than only calculating total monthly expenses.
+
+
+
